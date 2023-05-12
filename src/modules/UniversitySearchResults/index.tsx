@@ -12,15 +12,17 @@ type University = {
 
 const UniversitySearchResult: React.FC = () => {
 
+ 
   const [data, setData] = useState<University[]>([])
 
   useEffect(() => {
     fetchUniversityData().then((res: any) => setData(res))
   }, [])
   if (data.length === 0) return <h1>Loading data</h1>
+ 
 
   return (
-    <Box>
+    <Box data-testid="university-list" >
       <UniversityList isListEmpty={true} universityList={universityData} />
     </Box>
   )

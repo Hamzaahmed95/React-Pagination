@@ -1,4 +1,4 @@
-import { get } from "styled-system";
+
 import { data } from "../mockdata/university_mock";
 
 export const fetchUniversityData = async () => {
