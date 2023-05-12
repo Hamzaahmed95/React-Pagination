@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { data as universityData } from '../../mockdata/university_mock';
 import { Box } from '../../ui-components';
+import { fetchUniversityData } from '../../api/UniversityList';
 import UniversityList from './UniversityList';
 
 type University = {
@@ -14,7 +15,7 @@ const UniversitySearchResult: React.FC = () => {
   const [data, setData] = useState<University[]>([])
 
   useEffect(() => {
-    //setData(universityData)
+    fetchUniversityData().then((res: any) => setData(res))
   }, [])
   if (data.length === 0) return <h1>Loading data</h1>
 
