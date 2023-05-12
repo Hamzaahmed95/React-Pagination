@@ -10,7 +10,7 @@ import {
   LinkText,
 } from './style';
 
-// import url from '../../images/university.png'
+import url from '../../../images/university.jpg'
 
 interface ListProps {
   name: string;
@@ -28,7 +28,7 @@ const UniversityItem: React.FC<CardsProps> = ({ List }) => {
 
     return (
       <CardWrapper>
-        {/* <CardImage background={new URL("../../images/university.png", import.meta.url)} /> */}
+        <img height={200} src={url} alt="university image" />
         <CardTextWrapper>
           <CardTextTitle>{name}</CardTextTitle>
           <CardTextBody>{country}</CardTextBody>
