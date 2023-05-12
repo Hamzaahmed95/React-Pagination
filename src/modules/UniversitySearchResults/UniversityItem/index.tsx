@@ -10,7 +10,7 @@ import {
   LinkText,
 } from './style';
 
-import url from '../../../images/university.jpg'
+const url = require('../../../images/university.jpg')
 
 interface ListProps {
   name: string;
