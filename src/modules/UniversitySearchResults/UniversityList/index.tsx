@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Flex, Cards, Text } from '../../ui-components';
+import { Box, Flex, Text } from '../../../ui-components';
+import UniversityItem from '../UniversityItem/index';
 
 interface Props {
   isListEmpty: boolean;
@@ -17,7 +18,7 @@ const UniversityList: React.FC<Props> = ({ isListEmpty, universityList }) => {
     return <Flex justifyContent="center" flexWrap="wrap">
       {universityList.map((university: University, index: number) => (
         <Box key={index} className="item">
-          <Cards List={university} />
+          <UniversityItem List={university} />
         </Box>
       ))}</Flex>
   } else {
