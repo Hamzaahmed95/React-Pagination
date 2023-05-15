@@ -9,6 +9,7 @@ import {
   CardStats,
   LinkText,
 } from './style';
+import { Box, Flex, Text } from '../../../ui-components';
 
 const url = require('../../../images/university.jpg')
 
@@ -27,20 +28,20 @@ const UniversityItem: React.FC<CardsProps> = ({ List }) => {
     const { name, country, web_pages } = List;
 
     return (
-      <CardWrapper data-testid="university-item">
-        <img height={200} src={url} alt="university image" />
-        <CardTextWrapper>
-          <CardTextTitle>{name}</CardTextTitle>
-          <CardTextBody>{country}</CardTextBody>
-        </CardTextWrapper>
-        <CardStatWrapper>
-          <CardStats>
-            <LinkText target="blank" href={web_pages[0]}>
+      <Box p={3} data-testid="university-item">
+        <img height={180} src={url} alt="university image" />
+        <Flex>
+          <Text>{name}</Text>
+          <Text>{country}</Text>
+        </Flex>
+        <Flex>
+          <Flex>
+            <Text target="blank" href={web_pages[0]}>
               {web_pages[0]}
-            </LinkText>
-          </CardStats>
-        </CardStatWrapper>
-      </CardWrapper>
+            </Text>
+          </Flex>
+        </Flex>
+      </Box>
     );
   } else {
     return null;

@@ -1,4 +1,3 @@
-
 import styled, { StyledComponent } from 'styled-components';
 import {
   background,
@@ -11,10 +10,26 @@ import {
   space,
   textAlign,
   height,
+  SpaceProps,
+  ColorProps,
+  LayoutProps,
 } from 'styled-system';
 
+type BoxProps = {
+  background?: string;
+  border?: string;
+  color?: string;
+  flexbox?: string;
+  layout?: string;
+  position?: string;
+  shadow?: string;
+  space?: string;
+  textAlign?: string;
+  height?: string;
+} & SpaceProps & ColorProps & LayoutProps;
 
-const Box: StyledComponent<'div', any> = styled.div`
+
+const Box = styled.div<BoxProps>`
   ${background}
   ${border}
   ${color}
@@ -25,6 +40,7 @@ const Box: StyledComponent<'div', any> = styled.div`
   ${space}
   ${textAlign}
   ${height}
+  
 `;
 
 Box.displayName = 'Box';
