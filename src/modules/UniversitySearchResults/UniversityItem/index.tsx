@@ -27,7 +27,7 @@ const UniversityItem: React.FC<CardsProps> = ({ List }) => {
     const { name, country, web_pages } = List;
 
     return (
-      <CardWrapper>
+      <CardWrapper data-testid="university-item">
         <img height={200} src={url} alt="university image" />
         <CardTextWrapper>
           <CardTextTitle>{name}</CardTextTitle>

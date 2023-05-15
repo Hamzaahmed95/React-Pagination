@@ -20,7 +20,7 @@ const UniversitySearchResult: React.FC = () => {
  
   return (
     <Box data-testid="university-list" >
-      <UniversityList isListEmpty={true} universityList={universityData} />
+      <UniversityList universityList={universityData} />
     </Box>
   )
 };
