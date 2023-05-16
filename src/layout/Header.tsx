@@ -1,9 +1,15 @@
 import React from 'react';
+import { Flex } from '../ui-components';
+import SearchUniversity from '../modules/UniversitySearchResults/SearchBar/index';
 
-const Header: React.FC = () => (
-<div>
-  <h1>Header</h1>
-</div>)
+
+const Header = () => {
+  return (
+    <Flex className="header" justifyContent="center" backgroundColor="#4373FC" height="7vh" >
+      <SearchUniversity />
+    </Flex>
+  )
+};
 
 
 export default Header;
