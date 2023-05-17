@@ -8,9 +8,10 @@ describe('UniversitySearchResult component', () => {
   test('does not render UniversityItem component when passing empty university list', async () => {
 
     const props = {
-      universityList: []
+      universityList: [],
+      isListEmpty: false
     }
-    const {queryByTestId} = render(<UniversityList {...props} />)
+    const { queryByTestId } = render(<UniversityList {...props} />)
     const text = queryByTestId('university-item')
     expect(text).toBeNull()
   }),
@@ -23,9 +24,10 @@ describe('UniversitySearchResult component', () => {
         web_pages: ["hello world", "second link"]
       }]
       const props = {
-        universityList: data
+        universityList: data,
+        isListEmpty: false
       }
-      const {queryByTestId} = render(<UniversityList {...props} />)
+      const { queryByTestId } = render(<UniversityList {...props} />)
       const text = queryByTestId('university-item')
       expect(text).not.toBeNull()
     })

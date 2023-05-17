@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { data as universityData } from '../../mockdata/university_mock';
+import React, { useEffect } from 'react';
 import { Box } from '../../ui-components';
-import { fetchUniversityData } from '../../api/UniversityList';
+import { connect } from 'react-redux';
 import UniversityList from './UniversityList/index';
+import { getAllUniversities } from '../../actions/UniversitySearchResult';
+import { searchUniversitySelector, getUniversitiesSelector } from '../../selectors/UniversitySearchList';
 
-type University = {
-  name: string,
-  country: string,
-  web_pages: string[]
-}
-
-const UniversitySearchResult: React.FC = () => {
-  const [data, setData] = useState<University[]>([])
+const UniversitySearchResult = (props: any) => {
   useEffect(() => {
-    fetchUniversityData().then((res: any) => setData(res))
+    props.getAllUniversities()
   }, [])
 
-  if (data.length === 0) return <h1>Loading data</h1>
- 
+  if (props.universities.length === 0) {
+    return <h1>Loading data</h1>
+  }
   return (
     <Box data-testid="university-list" >
-      <UniversityList universityList={universityData} />
+      <UniversityList isListEmpty={props.filteredItems.length === 0} universityList={props.filteredItems} />
     </Box>
   )
 };
 
-export default UniversitySearchResult;
+const mapStateToProps = (state: any) => {
+  return {
+    universities: getUniversitiesSelector(state),
+    filteredItems: searchUniversitySelector(state)
+  };
+};
+export default connect(mapStateToProps, { getAllUniversities })(UniversitySearchResult);
+

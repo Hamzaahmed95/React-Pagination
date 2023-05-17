@@ -13,8 +13,8 @@ interface University {
   web_pages: string[];
 }
 
-const UniversityList: React.FC<Omit<Props, "isListEmpty">> = ({ universityList = [] }) => {
-
+const UniversityList: React.FC<Props> = ({isListEmpty, universityList = [] }) => {
+  if (!isListEmpty) {
   return (
     <Flex justifyContent="center" flexWrap="wrap">
       {universityList.map((university: University, index: number) => (
@@ -23,7 +23,10 @@ const UniversityList: React.FC<Omit<Props, "isListEmpty">> = ({ universityList =
         </Box>
       ))}
     </Flex>
-  )
+  )}
+  else{
+    return <Flex paddingTop="24px"><Text fontSize="24px" >No university found</Text></Flex>;
+  }
 
 };
 

@@ -4,6 +4,8 @@ import './index.css';
 import App from './src/App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from './src/pages/About';
+import { Provider } from "react-redux";
+import store from "./src/store/index";
 import Contact from './src/pages/Contact';
 
 const AppRoutes: React.FC = () => (
@@ -17,7 +19,9 @@ const AppRoutes: React.FC = () => (
 const container = document.getElementById('app-root')!;
 const root = createRoot(container);
 root.render(
+  <Provider store={store}>
   <BrowserRouter>
     <AppRoutes />
   </BrowserRouter>
+  </Provider>
 );
