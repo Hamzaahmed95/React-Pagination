@@ -1,7 +1,6 @@
 const initialState = {
   searchText: '',
-  universities: [],
-  page: 1
+  universities: []
 };
 
 export default function (state = initialState, action: any) {
