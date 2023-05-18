@@ -62,6 +62,9 @@
       "^.+\\.jsx?$": "babel-jest",
       "^.+\\.tsx?$": "ts-jest",
       "^.+\\.svg$": "jest-transform-stub"
-    }
+    },
+    "testPathIgnorePatterns":[
+      "./src/__tests__/"
+    ]
   }
 }

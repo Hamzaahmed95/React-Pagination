@@ -5,12 +5,10 @@ export const fetchUniversityData = async () => {
   try {
     const res: any = data;
     if (res && res.length > 0) {
-     
+
       res.sort((a: any, b: any) => (a.country > b.country) ? 1 : -1)
 
-      return {
-        apiData: res,
-      }
+      return res
     }
     throw res
   } catch (e) {

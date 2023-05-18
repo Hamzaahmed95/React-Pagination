@@ -1,8 +1,11 @@
 import React from 'react';
-import { render, screen, act } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import UniversitySearchResult from './index';
 import { fetchUniversityData } from '../../api/UniversityList';
-import { data } from '../../mockdata/university_mock';
+import { data } from '../../mockdata/short_data';
+import customRendererWithStore from '../../__tests__/customRendererWithStore';
+import store from '../../store';
+import { getAllUniversities } from '../../actions/UniversitySearchResult';
 
 jest.mock('../../api/UniversityList', () => ({
   fetchUniversityData: jest.fn(),
@@ -15,15 +18,17 @@ describe('UniversitySearchResult component', () => {
   test('renders "Loading data..." when there is no data', async () => {
 
     (fetchUniversityData as jest.Mock).mockResolvedValue([]);
-    render(<UniversitySearchResult />);
+    customRendererWithStore(<UniversitySearchResult />);
     const loadingText = await screen.findByText(/Loading data/i);
     expect(loadingText).toBeInTheDocument();
 
   });
-  test('renders University List when data is rendered', async() => {
+  test('renders University List when data is rendered', async () => {
     (fetchUniversityData as jest.Mock).mockResolvedValue(data);
-    render(<UniversitySearchResult />);
-    const loadingText = await screen.findByTestId('university-list');
-    expect(loadingText).toBeInTheDocument();
+    getAllUniversities()
+    const { queryByTestId } = customRendererWithStore(<UniversitySearchResult />);
+    await waitFor(() => queryByTestId('university-list'))
+    const universityList = queryByTestId('university-list');
+    expect(universityList).toBeInTheDocument();
   });
 })

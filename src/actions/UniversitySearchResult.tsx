@@ -12,15 +12,13 @@ interface SearchByNameAction {
 export const getAllUniversities = () => (dispatch: Dispatch<SearchByNameAction>) => {
   fetchUniversityData().then(res => {
 
-    const responseData = get(res, 'apiData')
-
+    const responseData = res
     if (!isEmpty(responseData)) {
       dispatch({
         type: GET_ALL_UNIVERSITIES,
         payload: responseData
       });
     }
-    return res;
   }).catch(error => {
     dispatch({
       type: GET_ALL_UNIVERSITIES,
