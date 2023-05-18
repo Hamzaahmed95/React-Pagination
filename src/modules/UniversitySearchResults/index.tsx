@@ -5,6 +5,7 @@ import UniversityList from './UniversityList/index';
 import { getAllUniversities } from '../../actions/UniversitySearchResult';
 import { searchUniversitySelector, getUniversitiesSelector } from '../../selectors/UniversitySearchList';
 import { UniversitySearchResultProps } from './types'
+import { RootState } from '../../store';
 
 const UniversitySearchResult = (props: UniversitySearchResultProps) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const UniversitySearchResult = (props: UniversitySearchResultProps) => {
   )
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: RootState) => {
   return {
     universities: getUniversitiesSelector(state),
     filteredItems: searchUniversitySelector(state)

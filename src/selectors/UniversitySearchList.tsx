@@ -1,4 +1,6 @@
-export const searchUniversitySelector = (state: any) => {
+import { RootState } from "../store";
+
+export const searchUniversitySelector = (state: RootState) => {
   const { universities, searchText } = state.universitySearchResult;
   return universities.filter((item: any) =>
     item.name.toLowerCase().startsWith(searchText.toLowerCase()) ||
@@ -6,4 +8,4 @@ export const searchUniversitySelector = (state: any) => {
   )
 }
 
-export const getUniversitiesSelector = (state: any) => state.universitySearchResult.universities
+export const getUniversitiesSelector = (state: RootState) => state.universitySearchResult.universities
