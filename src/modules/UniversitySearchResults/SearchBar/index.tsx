@@ -1,16 +1,14 @@
 import React, { ChangeEvent } from 'react';
 import { Input } from '../../../ui-components';
 import { connect } from 'react-redux';
-import { filterUniversityByName } from '../../../actions/UniversitySearchResult';
+import { searchUniversityByName } from '../../../actions/UniversitySearchResult';
+import { SearchUniversityProps } from '../types';
 
-
-interface SearchUniversityProps {
-  filterUniversityByName: (name: string) => void;
-}
 
 const SearchUniversity = (props: SearchUniversityProps) => {
+  
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    props.filterUniversityByName(event.target.value);
+    props.searchUniversityByName(event.target.value);
   };
 
   return (
@@ -22,8 +20,9 @@ const SearchUniversity = (props: SearchUniversityProps) => {
     />
   );
 };
+
 const mapDispatchToProps = {
-  filterUniversityByName: (name: string) => filterUniversityByName(name),
+  searchUniversityByName: (name: string) => searchUniversityByName(name),
 };
 
 export default connect(null, mapDispatchToProps)(SearchUniversity);

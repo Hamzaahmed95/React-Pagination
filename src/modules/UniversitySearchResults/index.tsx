@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import UniversityList from './UniversityList/index';
 import { getAllUniversities } from '../../actions/UniversitySearchResult';
 import { searchUniversitySelector, getUniversitiesSelector } from '../../selectors/UniversitySearchList';
+import { UniversitySearchResultProps } from './types'
 
-const UniversitySearchResult = (props: any) => {
+const UniversitySearchResult = (props: UniversitySearchResultProps) => {
   useEffect(() => {
     props.getAllUniversities()
   }, [])
@@ -28,4 +29,3 @@ const mapStateToProps = (state: any) => {
   };
 };
 export default connect(mapStateToProps, { getAllUniversities })(UniversitySearchResult);
-
