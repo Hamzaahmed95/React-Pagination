@@ -1,7 +1,7 @@
 import { fetchUniversityData } from "../api/UniversityList";
 import { GET_ALL_UNIVERSITIES, SEARCH_BY_NAME } from "./types";
 import { Dispatch } from "redux";
-import { get, isEmpty } from 'lodash'
+import { isEmpty } from 'lodash'
 
 interface SearchByNameAction {
   type: typeof SEARCH_BY_NAME | typeof GET_ALL_UNIVERSITIES;
