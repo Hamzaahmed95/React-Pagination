@@ -11,6 +11,7 @@ export interface UniversityProps {
 
 export interface UniversityListProps {
   isListEmpty: boolean;
+  isLoading:boolean
   universityList: Array<UniversityProps>;
 }
 

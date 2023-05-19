@@ -18,9 +18,11 @@ describe('UniversitySearchResult component', () => {
   test('renders "Loading data..." when there is no data', async () => {
 
     (fetchUniversityData as jest.Mock).mockResolvedValue([]);
-    customRendererWithStore(<UniversitySearchResult />);
-    const loadingText = await screen.findByText(/Loading data/i);
-    expect(loadingText).toBeInTheDocument();
+    const { queryByTestId } = customRendererWithStore(<UniversitySearchResult />);
+    await waitFor(() => queryByTestId('loading-state'))
+    const universityList = queryByTestId('loading-state');
+    //
+    expect(universityList).toBeInTheDocument();
 
   });
   test('renders University List when data is rendered', async () => {

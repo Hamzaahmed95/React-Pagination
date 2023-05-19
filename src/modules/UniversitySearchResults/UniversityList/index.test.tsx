@@ -9,7 +9,8 @@ describe('UniversitySearchResult component', () => {
 
     const props = {
       universityList: [],
-      isListEmpty: false
+      isListEmpty: false,
+      isLoading: true
     }
     const { queryByTestId } = render(<UniversityList {...props} />)
     const text = queryByTestId('university-item')
@@ -25,7 +26,8 @@ describe('UniversitySearchResult component', () => {
       }]
       const props = {
         universityList: data,
-        isListEmpty: false
+        isListEmpty: false,
+        isLoading: false
       }
       const { queryByTestId } = render(<UniversityList {...props} />)
       const text = queryByTestId('university-item')
