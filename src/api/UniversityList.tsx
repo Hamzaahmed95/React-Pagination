@@ -1,5 +1,5 @@
 
-import { data } from "../mockdata/short_data";
+import { data } from "../mockdata/university_mock";
 import { University } from "./types";
 
 
