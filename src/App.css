@@ -9,9 +9,10 @@
     input::-webkit-input-placeholder {
         font-size: 12px;
     }
-    .header{
-        height: 5vh;
-    }
+    .header {
+        position: sticky;
+        top: 0%;
+      }
     .subscription{
         position: fixed; 
         width: 100%; 
@@ -34,10 +35,7 @@
         height: 500px !important;
     }
 }
-.university{
-    overflow-y:scroll;
-    height: 700px;
-}
+
 .list {
     padding:16px;
     font-size: 16px;
@@ -48,4 +46,14 @@
     width: 100%; 
     bottom: 0%;   
 }
+.header {
+    position: sticky;
+    top: 0%;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+  }
 

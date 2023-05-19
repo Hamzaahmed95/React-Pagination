@@ -18,32 +18,32 @@ const UniversityItem: React.FC<CardsProps> = ({ List }) => {
     const { name, country, web_pages } = List;
 
     return (
-      <Flex 
-        justifyContent="space-between" 
-        flexDirection='column' 
-        alignItems='space-between' 
-        p={3} 
-        m={3} 
-        width='15em' 
-        height='20em' 
-        border="solid" 
+      <Flex
+        justifyContent="space-between"
+        flexDirection='column'
+        alignItems='space-between'
+        p={3}
+        m={3}
+        width='15em'
+        height='20em'
+        border="solid"
         data-testid="university-item">
-          <img 
-            height="200px" 
-            src={url} 
-            alt="university image" />
-          <Flex justifyContent="center">
-            <Text fontFamily='mono'>{name}</Text>
-            <Text fontFamily='mono'>{country}</Text>
+        <img
+          height="200px"
+          src={url}
+          alt="university image" />
+        <Flex flexDirection='column' alignItems='center' justifyContent="center">
+          <Text fontFamily='mono'>{name}</Text>
+          <Text fontFamily='mono'>{country}</Text>
+        </Flex>
+        <Flex justifyContent="center">
+          <Flex >
+            <a target="blank" href={web_pages[0]}>
+              {web_pages[0]}
+            </a>
           </Flex>
-          <Flex justifyContent="center">
-            <Flex >
-              <a target="blank" href={web_pages[0]}>
-                {web_pages[0]}
-              </a>
-            </Flex>
-         </Flex>
-       </Flex>
+        </Flex>
+      </Flex>
     );
   } else {
     return null;

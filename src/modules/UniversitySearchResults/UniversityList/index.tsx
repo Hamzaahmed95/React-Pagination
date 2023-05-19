@@ -8,7 +8,7 @@ const UniversityList: React.FC<UniversityListProps> = ({ isLoading, isListEmpty,
   if (isLoading) {
     return (
       <Flex data-testid="loading-state" py={2} px={4} flexDirection='row' justifyContent="center" flexWrap="wrap">
-        {Array(24).fill(0).map((item,index) => <Instagram key={index} width={300} backgroundColor={'#D3D3D3'} height={300} />)}
+        {Array(24).fill(0).map((item, index) => <Instagram key={index} width={300} backgroundColor={'#D3D3D3'} height={300} />)}
       </Flex>
 
     )
@@ -25,7 +25,7 @@ const UniversityList: React.FC<UniversityListProps> = ({ isLoading, isListEmpty,
     )
   }
   else {
-    return <Flex paddingTop="24px"><Text fontSize="24px" >No university found</Text></Flex>;
+    return <Flex justifyContent="center" paddingTop="24px"><Text fontSize="24px" >No university found</Text></Flex>;
   }
 };
 

@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import { layout, space, variant } from 'styled-system';
-import { css } from '@styled-system/css'
+import { css, CSSObject } from '@styled-system/css'
 
-const variants = {
+type ButtonVariants = {
+  primary: CSSObject;
+  secondary: CSSObject;
+};
+
+const variants: ButtonVariants = {
   primary: {
     color: 'white',
     width: '7.5rem',
@@ -20,7 +25,7 @@ const variants = {
   },
   secondary: {
     color: 'black',
-    width: '3.5rem',
+    width: '5.5rem',
     borderWidth: '1px',
     borderStyle: 'solid',
     borderColor: 'black',
@@ -37,8 +42,7 @@ const variants = {
   },
 };
 
-
-const Button = styled.button`
+const Button = styled.button<any>`
   ${variant({
   variants,
 })}

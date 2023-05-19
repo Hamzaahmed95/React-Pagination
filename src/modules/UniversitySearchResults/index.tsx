@@ -6,18 +6,13 @@ import { getAllUniversities } from '../../actions/UniversitySearchResult';
 import { searchUniversitySelector, getUniversitiesSelector } from '../../selectors/UniversitySearchList';
 import { UniversitySearchResultProps } from './types'
 import { RootState } from '../../store';
-
 const UniversitySearchResult = (props: UniversitySearchResultProps) => {
   useEffect(() => {
     props.getAllUniversities()
   }, [])
 
-  // if (props.universities.length === 0) {
-  //   return <h1>Loading data</h1>
-  // }
-
   return (
-    <Box data-testid="university-list" >
+    <Box className="university" data-testid="university-list" >
       <UniversityList isLoading={props.universities.length === 0} isListEmpty={props.filteredItems.length === 0} universityList={props.filteredItems} />
     </Box>
   )
